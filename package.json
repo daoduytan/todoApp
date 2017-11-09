@@ -1,0 +1,31 @@
+{
+  "name": "todoapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "firebase": "^4.5.0",
+    "gravatar-url": "^2.0.0",
+    "localforage": "^1.5.2",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "recompose": "^0.26.0",
+    "redux": "^3.7.2",
+    "redux-persist": "^4.10.1",
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.74.2",
+    "validator": "^9.1.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.14"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
