@@ -8,12 +8,12 @@ const GuestRoute = ({ isAuth, component: Component, ...rest }) => {
   );
 }
 
-const mapStateToProps = ({ loginState }) => {
+const mapStateToProps = ({ authState }) => {
   if(localStorage.uid) {
     return ({ isAuth: localStorage.uid })
   }
   return ({
-    isAuth: loginState.isAuth
+    isAuth: authState.user
   })
 }
 

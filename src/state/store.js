@@ -14,6 +14,7 @@ const store = createStore(
   )
 );
 
-persistStore(store)
+persistStore(store, { blacklist: ['messageState'] })
+persistStore(store);
 
 export default store;

@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import loginState from '../components/pages/LoginPage/login.state';
-import signupState from '../components/pages/SignupPage/signup.state';
+import { authState } from '../components/pages/AuthPage/auth.state';
 
 const rootReducer = combineReducers({
-  loginState,
-  signupState
+  authState,
 });
 
 export default rootReducer;

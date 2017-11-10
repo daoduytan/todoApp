@@ -2,20 +2,22 @@ const LOGIN = {
   FAIL: 'fail',
   SUCCESS: 'success',
   RESET: 'reset',
-  LOADING: 'loading'
+  // LOADING: 'loading'
 }
 
 const SIGNUP = {
   FAIL: 'fail',
   SUCCESS: 'success',
   RESET: 'reset',
-  LOADING: 'loading'
+  // LOADING: 'loading'
 }
 
 const LOGOUT = 'logout';
+const LOADING = 'loading';
 
 export {
   LOGIN,
   SIGNUP,
-  LOGOUT
+  LOGOUT,
+  LOADING
 }
