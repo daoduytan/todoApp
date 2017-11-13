@@ -1,19 +1,70 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { firebaseApp } from '../../../firebase';
-import { logout } from '../AuthPage/LoginPage/login.state';
+import { Grid } from 'semantic-ui-react';
+import { loadProject, editCard, deleteCard } from './home.state';
+import Column from './Column';
 import Navigation from '../../navigation';
 
-const HomePage = ({ logout }) => (<div style={{ paddingTop: '60px' }}>
-  <Navigation />
-  <div>
+class HomePage extends React.Component {
 
-  </div>
-</div>);
+  componentWillMount () {
+    this.props.loadProject()
+  }
 
-HomePage.propTypes = {
-  logout: PropTypes.func
+  render() {
+    return (
+      <div>
+      <Navigation />
+      <div style={{ padding: '80px 20px 15px 20px'}}>
+        <Grid columns={4}>
+          <Grid.Column>
+            <Column
+              id="todo"
+              title="To do"
+              projects={
+                this.props.projects.filter(project => project.status === "new")
+              }
+            />
+          </Grid.Column>
+          <Grid.Column>
+          <Column
+            id="progress"
+            title="Progress"
+            projects={
+              this.props.projects.filter(project => project.status === "progress")
+            }
+          />
+          </Grid.Column>
+          <Grid.Column>
+            <Column
+              id="review"
+              title="Review"
+              projects={
+                this.props.projects.filter(project => project.status === "review")
+              }
+            />
+          </Grid.Column>
+          <Grid.Column>
+            <Column
+              id="done"
+              title="Done"
+              projects={
+                this.props.projects.filter(project => project.status === "done")
+              }
+            />
+          </Grid.Column>
+        </Grid>
+      </div>
+      </div>
+    )
+  }
 }
 
-export default connect(null, { logout })(HomePage);
+const mapStateToProps = ({ authState }) => {
+  return {
+    projects: authState.projects
+  }
+}
+
+
+export default connect(mapStateToProps, { loadProject, deleteCard, editCard })(HomePage);

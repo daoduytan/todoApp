@@ -13,11 +13,12 @@ const SIGNUP = {
 }
 
 const LOGOUT = 'logout';
-const LOADING = 'loading';
+
+const ADDNEW = 'add_new';
 
 export {
+  ADDNEW,
   LOGIN,
   SIGNUP,
   LOGOUT,
-  LOADING
 }

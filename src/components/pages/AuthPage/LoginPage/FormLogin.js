@@ -31,7 +31,7 @@ class FormLogin extends Component {
   onSubmit = () => {
     const { data } = this.state;
 
-    const errors = this.validate(this.state.data);
+    const errors = this.validate(data);
     this.setState({ errors });
 
     if ( Object.keys(errors).length === 0) {

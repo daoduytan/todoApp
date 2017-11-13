@@ -40,7 +40,7 @@ class FormSignup extends Component {
         firebaseApp.auth()
         .createUserWithEmailAndPassword(data.email, data.password)
         .then(user => {
-          firebaseApp.database().ref(`member/${user.uid}`).update({ username: '', email: data.email, password: data.password, address: '', phone: '' });
+          firebaseApp.database().ref(`member/${user.uid}`).update({ username: '', email: data.email, password: data.password, address: '', phone: '', projects: [] });
           this.props.signup(user);
           this.loading = false;
         });
