@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Icon, Image, Menu, Input, Dropdown } from 'semantic-ui-react';
 import gravatarUrl from 'gravatar-url';
 import { logout } from '../pages/AuthPage/LoginPage/login.state';
@@ -10,6 +11,9 @@ const Navigation = ({ user, logout }) => (
       <Menu.Item>
         <Icon name="clone" />
         <strong>Boards</strong>
+      </Menu.Item>
+      <Menu.Item>
+        <Link to="add_new">Add new project</Link>
       </Menu.Item>
       <Menu.Menu position="right">
         <Menu.Item>

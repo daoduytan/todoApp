@@ -108,7 +108,7 @@ class AddNewPage extends Component {
                       {
                         key: 'review',
                         text: 'Review',
-                        value: 'Review',
+                        value: 'review',
                       },
                       {
                         key: 'done',
@@ -153,8 +153,10 @@ class AddNewPage extends Component {
 
 
             </Form>
-            <Button primary onClick={this.onSubmit}>Add now</Button>
-            <Button onClick={() => this.props.history.push('/')}>Back</Button>
+            <div style={{ marginTop: 20 }}>
+              <Button primary onClick={this.onSubmit}>Add now</Button>
+              <Button onClick={() => this.props.history.push('/')}>Back</Button>
+            </div>
           </Grid.Column>
 
         </Grid>

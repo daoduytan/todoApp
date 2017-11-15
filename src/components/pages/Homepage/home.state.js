@@ -1,10 +1,9 @@
 import { firebaseApp } from "../../../firebase/index";
-import { locales } from "validator/lib/isPostalCode";
 
 export const loadProject = () => dispatch => {
   const uid  = localStorage.getItem('uid')
   firebaseApp.database().ref(`member/${uid}/projects`).on('value', (snapshot) => {
-    console.log(snapshot.val())
+    // console.log(snapshot.val())
     if (snapshot.val() === null) {
       return dispatch({
         type: 'load_project',
@@ -30,7 +29,26 @@ export const editCard = (project) => dispatch => {
   firebaseApp.database().ref(`member/${uid}/projects/`).child(project.key).update(project);
 }
 
-export const addTask = (id, task) => dispatch => {
+export const changeStatus = (status, project) => dispatch => {
+  const uid  = localStorage.getItem('uid');
+  // console.log(33123)
+  const newProject = { ...project,  status }
+  // console.log(3123123)
+  firebaseApp.database().ref(`member/${uid}/projects/`).child(project.key).update(newProject);
+}
+
+export const addTask = (task) => dispatch => {
   const uid = localStorage.getItem('uid');
-  firebaseApp.database().ref(`member/${uid}/projects/${id}/tasks`).push(task);
+  firebaseApp.database().ref(`member/${uid}/projects/${task.projectId}/tasks`).push(task);
+}
+
+export const changeFinishTask = (id, task) => dispatch => {
+  const uid = localStorage.getItem('uid');
+  firebaseApp.database().ref(`member/${uid}/projects/${id}/tasks`).child(task.key).update(task);
+}
+
+export const removeTask = (task) => dispatch => {
+  const uid = localStorage.getItem('uid');
+  console.log(task.key)
+  firebaseApp.database().ref(`member/${uid}/projects/${task.projectId}/tasks`).child(task.key).remove();
 }

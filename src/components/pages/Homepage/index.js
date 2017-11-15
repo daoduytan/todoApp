@@ -15,12 +15,14 @@ class HomePage extends React.Component {
     return (
       <div>
       <Navigation />
+
       <div style={{ padding: '80px 20px 15px 20px'}}>
+
         <Grid columns={4}>
           <Grid.Column>
             <Column
               id="todo"
-              title="To do"
+              title="New"
               projects={
                 this.props.projects.filter(project => project.status === "new")
               }
@@ -54,6 +56,7 @@ class HomePage extends React.Component {
             />
           </Grid.Column>
         </Grid>
+
       </div>
       </div>
     )
