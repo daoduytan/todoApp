@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect} from 'react-redux';
-// import _ from 'lodash';
-import { Card, Dropdown } from 'semantic-ui-react';
+import _ from 'lodash';
+import { Card, Dropdown, Header, Icon } from 'semantic-ui-react';
 import { addTask, changeFinishTask, deleteCard, changeStatus } from './home.state';
 import Tasks from './Tasks';
 import Level from './Level';
@@ -85,7 +85,7 @@ class CardProject extends React.Component {
       <Card fluid>
         <Card.Content>
           <div style={{ float: 'right' }}>
-            <Dropdown className="icon" icon="ellipsis horizontal">
+            <Dropdown pointing="top right " className="icon" icon="ellipsis horizontal">
               <Dropdown.Menu>
                 <Dropdown.Item onClick={this.onEdit} text="Edit" icon="edit" />
                 {project.status !== 'done' &&
@@ -97,13 +97,12 @@ class CardProject extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <Card.Header>
-            {project.name}
-          </Card.Header>
-          <Card.Description>
-            <Level text={project.level} />
-          </Card.Description>
-          <p style={{ marginTop: '20px', }}>{project.discription}</p>
+          <div style={{ marginBottom: 15 }}><Level text={project.level} /></div>
+          <Card.Header content={project.name}/>
+          <Card.Meta style={{ marginTop: 10}}>
+            <Icon name="folder outline" /> { _.size(project.tasks) }
+          </Card.Meta>
+          { project.discription.length > 0 && <Card.Description>{project.discription}</Card.Description> }
         </Card.Content>
         <Card.Content>
           <Tasks

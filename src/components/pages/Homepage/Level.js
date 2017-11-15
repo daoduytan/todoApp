@@ -13,7 +13,7 @@ class Level extends React.Component {
   }
   render() {
     return (
-      <Label size="mini" content={this.props.text} color={this.renderColor(this.props.text)} />
+      <Label size="tiny" content={this.props.text} color={this.renderColor(this.props.text)} />
     )
   }
 }

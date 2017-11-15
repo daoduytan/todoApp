@@ -155,7 +155,7 @@ class AddNewPage extends Component {
             </Form>
             <div style={{ marginTop: 20 }}>
               <Button primary onClick={this.onSubmit}>Add now</Button>
-              <Button onClick={() => this.props.history.push('/')}>Back</Button>
+              <Button onClick={() => this.props.history.push('/')}>Back to Home</Button>
             </div>
           </Grid.Column>
 

@@ -6,11 +6,9 @@ import Column from './Column';
 import Navigation from '../../navigation';
 
 class HomePage extends React.Component {
-
   componentWillMount () {
     this.props.loadProject()
   }
-
   render() {
     return (
       <div>

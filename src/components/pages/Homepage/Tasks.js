@@ -54,9 +54,11 @@ class Tasks extends React.Component {
 
     return (
       <div>
+
+        { tasks.length > 0 &&
         <List>
           { tasks.map(task => <Task key={task.key} changeFinishTask={this.changeFinishTask} task={task} />)}
-        </List>
+        </List> }
         <Form onSubmit={this.onSubmit}>
           <Form.Field error={this.state.error}>
             <input
